@@ -23,4 +23,4 @@ If the GitHub Actions pipeline (ci.yml) fails on a new pull request:
 ## 3. Customer Communication Template (SaaS Support)
 When reaching out to users regarding failed AI triages, use this empathy-driven structure:
 
-"Hi [User Name], we noticed your recent deployment request to the AI agent experienced a timeout. Our monitoring tools indicate a temporary latency spike with our upstream API. We have reset your connection state—could you please attempt the deployment workflow once more? Let us know if the issue persists, and we will escalate this immediately.
+"Hi <UserName>, we noticed your recent deployment request to the AI agent experienced a timeout. Our monitoring tools indicate a temporary latency spike with our upstream API. We have reset your connection state—could you please attempt the deployment workflow once more? Let us know if the issue persists, and we will escalate this immediately.
