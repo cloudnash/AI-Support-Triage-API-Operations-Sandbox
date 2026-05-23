@@ -57,3 +57,32 @@ It highlights the ability to:
    ```
    git clone [https://github.com/cloudnash/ai-support-triage-api.git](https://github.com/cloudnash/ai-support-triage-api.git)
    cd ai-support-triage-api
+   ```
+2. **Set up a virtual environment (Optional but recommended):**
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+3. Install dependencies:
+4. Run the application:
+
+
+### Docker Deployment
+
+To run the service in an isolated container:
+
+```
+# Build the Docker image
+docker build -t ai-triage-api:latest .
+
+# Run the container mapping port 8000
+docker run -d -p 8000:8000 --name support-api ai-triage-api
+```
+
+## 📖 API Documentation
+
+Once the application is running, you can interact with the API using the automatically generated Swagger UI at:
+👉 http://localhost:8000/docs
+
+Main Endpoint: POST /api/v1/triage
+Request Body Example:
