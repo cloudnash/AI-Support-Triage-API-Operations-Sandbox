@@ -64,8 +64,14 @@ It highlights the ability to:
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
 3. Install dependencies:
-4. Run the application:
-
+   ```
+   pip install -r app/requirements.txt
+   ```
+5. Run the application:
+   
+   ```
+   uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+   ```
 
 ### Docker Deployment
 
@@ -78,6 +84,8 @@ docker build -t ai-triage-api:latest .
 # Run the container mapping port 8000
 docker run -d -p 8000:8000 --name support-api ai-triage-api
 ```
+---
+
 
 ## 📖 API Documentation
 
@@ -86,3 +94,49 @@ Once the application is running, you can interact with the API using the automat
 
 Main Endpoint: POST /api/v1/triage
 Request Body Example:
+
+```
+{
+  "user_id": "dev_123",
+  "issue_description": "My deployment crashed after the AI agent committed new infrastructure code."
+}
+```
+
+Response Body Example (200 OK):
+
+```
+{
+  "status": "success",
+  "category": "DevOps / Infrastructure",
+  "suggested_action": "Review container logs and CI/CD pipeline status.",
+  "processing_time_ms": 142.5
+}
+```
+Health Endpoint: GET /health
+Used by Kubernetes or AWS Application Load Balancers to verify container health
+
+---
+
+## 🛠️ Operations & Troubleshooting
+
+As an AI Product Experience Specialist, maintaining operational clarity is critical.
+
+Please refer to the Operations & Troubleshooting Runbook (docs/TROUBLESHOOTING.md) for detailed protocols on:
+
+- L1/L2 Support Escalation Workflows
+- Log Querying for SaaS Debugging
+- Managing CI/CD Pipeline Failures
+- Customer Communication Templates
+
+---
+
+## 🔄 CI/CD Pipeline
+This repository utilizes GitHub Actions for continuous integration. The pipeline (.github/workflows/ci.yml) automatically triggers on push and pull requests to the main branch, executing the following jobs:
+
+- Provisions an Ubuntu runner.
+- Sets up Python 3.9.
+- Installs dependencies.
+- Performs a dry-run Docker build to ensure the image compiles successfully without broken dependencies.
+
+---
+
