@@ -142,7 +142,7 @@ This repository utilizes GitHub Actions for continuous integration. The pipeline
 
 ## 🤝 Contributing
 
-This is an internship learning project. Feel free to fork, explore, and learn from it!
+This is a learning project. Feel free to fork, explore, and learn from it!
 
 ---
 
